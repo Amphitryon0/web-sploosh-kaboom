@@ -147,8 +147,8 @@ impl PossibleBoards {
         let mut probabilities = [0.0; 64];
 
         for (i, pb) in (&self.boards).iter().enumerate() {
-            let board_prob = (1e-20 + board_priors[i]) * pb.probability;
             if pb.check_compatible(hit_mask, miss_mask, squids_gotten) {
+                let board_prob = 1e-20 * pb.probability + board_priors[i];
                 for bit_index in 0..64 {
                     if (pb.squids & (1 << bit_index)) != 0 {
                         probabilities[bit_index] += board_prob;
@@ -300,7 +300,7 @@ pub fn calculate_probabilities_without_sequence(
     misses: &[u8],
     squids_gotten: i32,
 ) -> Option<Vec<f64>> {
-    let board_priors = vec![1.0; 604584];
+    let board_priors = vec![0.0; 604584];
     let (probabilities, total_probability) = POSSIBLE_BOARDS
         .get_or_init(PossibleBoards::new)
         .do_computation(hits, misses, squids_gotten, &board_priors)?;
@@ -308,7 +308,7 @@ pub fn calculate_probabilities_without_sequence(
     let mut values = probabilities.iter().copied().collect::<Vec<_>>();
 
     // We sneak in the total probability at the end.
-    values.push(total_probability);
+    values.push(total_probability * 1e20);
 
     Some(values)
 }
