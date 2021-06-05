@@ -46,14 +46,14 @@ Sploosh Kaboom play can be optimized by examining the probabilities of squid
 positioning on the board. By generating every possible valid configuration, we
 can perform mostly optimal play by use of a simple algorithm:
 
-1. Initialize a board working set with all 604,584 possible boards.
+1. Initialize a working board set with all 604,584 possible boards.
 2. Determine the probability each board space contains a squid by checking what
-fraction of the board working set has a squid in that space.
+fraction of the working board set has a squid in that space.
 3. Fire upon whatever unchecked space has the highest statistical odds of
 containing a squid.
 4. Based on the current game state (hits, misses, unchecked spaces, and
-eliminated group count), determine what subset of the board working set is still
-possible. This subset is the new board working set.
+eliminated group count), determine what subset of the working board set is still
+possible. This subset is the new working board set.
 5. Repeat from step 2 until the game is complete.
 
 This algorithm makes the most likely choice at each step of the game, which will
@@ -125,9 +125,10 @@ function fits(x, y, shipLength, orientation):  // would the ship fit?
         return True
 ```
 
-There are a few simplifications made compared to [the full code]
-(https://pastebin.com/010PBgnm), namely the removal of some bookkeeping
-operations and unused functionality to place fewer ships on the board.
+There are a few simplifications made compared to
+[the full code](https://pastebin.com/010PBgnm), namely the removal of some
+bookkeeping operations and unused functionality to place fewer ships on the
+board.
 
 #### RNG Algorithm
 
@@ -191,8 +192,8 @@ necessary.
 
 We know approximately how many times the RNG algorithm is called between games,
 so we add this value to each board sequence index. We start off by emptying the
-board working set. Then, for each new index, we add the boards at that and
-nearby indices to the board working set, which now typically contains only on
+working board set. Then, for each new index, we add the boards at that and
+nearby indices to the working board set, which now typically contains only on
 the order of 1,000 boards.
 
 After each subsequent game is completed, the set of possible RNG indices can be
