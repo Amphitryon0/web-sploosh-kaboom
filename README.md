@@ -185,21 +185,16 @@ entirely.
 
 If the runner then completes a single game, we search in the board layout
 sequence for the board that was encountered. This gives us a set of possible
-sequence indices. If desired for efficiency (to avoid a linear search at
-runtime), we can instead precompute a reverse mapping from board layouts to
-their possible sequence positions. However, this does not turn out to be
-necessary.
-
-We know approximately how many times the RNG algorithm is called between games,
-so we add this value to each board sequence index. We start off by emptying the
-working board set. Then, for each new index, we add the boards at that and
-nearby indices to the working board set, which now typically contains only on
-the order of 1,000 boards.
+sequence indices. We know approximately how many times the RNG algorithm is
+called between games, so we add this value to each index to get a set of
+estimated indices for the second board. We initialize the working board set with
+only those boards that appear near the estimated board sequence indices,
+typically on the order of 1,000.
 
 After each subsequent game is completed, the set of possible RNG indices can be
 further narrowed based on which indices are consistent with all known boards.
-Once sufficiently narrowed (though this often happens after one board), the set
-of boards becomes small enough we can predict the correct board very accurately.
+Once sufficiently narrowed (often after just one board), the set of boards
+becomes small enough we can predict the correct board very accurately.
 
 ### Worked Example
 
