@@ -1164,15 +1164,15 @@ class MainMap extends React.Component {
             </div>
             <br/>
             <div className="controls">
+                <button onClick={() => { this.reportMiss(); }}>
+                    Miss (z)
+                </button>
+                <button onClick={() => { this.reportHit(); }}>
+                    Hit (x)
+                </button>
                 {
                     this.state.turboBlurboMode &&
                     <>
-                        <button onClick={() => { this.reportMiss(); }}>
-                            Miss (z)
-                        </button>
-                        <button onClick={() => { this.reportHit(); }}>
-                            Hit (x)
-                        </button>
                         <button onClick={() => { this.copyToHistory(); }}>
                             Copy to History (h)
                         </button>
