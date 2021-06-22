@@ -191,10 +191,11 @@ estimated indices for the second board. We initialize the working board set with
 only those boards that appear near the estimated board sequence indices,
 typically on the order of 1,000.
 
-After each subsequent game is completed, the set of possible RNG indices can be
-further narrowed based on which indices are consistent with all known boards.
-Once sufficiently narrowed (often after just one board), the set of boards
-becomes small enough we can predict the correct board very accurately.
+We can use this as the initial working board set for the algorithm described
+[above](#examining-the-statistics), greatly increasing the accuracy of our
+predictions. After each subsequent game is completed, the set of possible RNG
+indices can be further narrowed based on which indices are consistent with all
+known boards.
 
 ### Worked Example
 
