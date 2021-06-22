@@ -1107,10 +1107,10 @@ class MainMap extends React.Component {
                             <span><strong>&nbsp;Control&nbsp;</strong></span><span><strong>&nbsp;Shortcut&nbsp;</strong></span>
                             <span>&nbsp;Toggle Timer&nbsp;</span><span>&nbsp;Space&nbsp;</span>
                             <span>&nbsp;Add Reward&nbsp;</span><span>&nbsp;,&nbsp;</span>
-                            <span>&nbsp;Remove Reward&nbsp;</span><span>&nbsp;&lt;&nbsp;</span>
+                            <span>&nbsp;Remove Reward&nbsp;</span><span>&nbsp;Shift+,&nbsp;</span>
                             <span>&nbsp;Toggle Room Entered&nbsp;</span><span>&nbsp;m&nbsp;</span>
                             <span>&nbsp;Invalidate Timer&nbsp;</span><span>&nbsp;;&nbsp;</span>
-                            <span>&nbsp;Reset Timer&nbsp;</span><span>&nbsp;:&nbsp;</span>
+                            <span>&nbsp;Reset Timer&nbsp;</span><span>&nbsp;Shift+;&nbsp;</span>
                             <span>&nbsp;Split Timer&nbsp;</span><span>&nbsp;s&nbsp;</span>
                         </>}
                     </div>
@@ -1354,41 +1354,42 @@ function globalShortcutsHandler(evt) {
     if (evt.target && 'getAttribute' in evt.target && evt.target.getAttribute('data-stop-shortcuts'))
         return;
 
-    var event_key = evt.key.toLowerCase();
     if (evt.ctrlKey) {
-        if (globalMap !== null && event_key === 'z') {
+        if (globalMap !== null && evt.key.toLowerCase() === 'z') {
             globalMap.undoLastMarking();
         }
     }
     else {
         if (globalMap !== null) {
             // Support z or y for German keyboards.
-            if (event_key === 'z' || event_key === 'y')
+            if (evt.code === 'KeyZ')
                 globalMap.reportMiss();
-            if (event_key === 'x')
+            if (evt.code === 'KeyX')
                 globalMap.reportHit();
-            if (event_key === 'c')
+            if (evt.code === 'KeyC')
                 globalMap.incrementKills();
-            if (event_key === 's')
+            if (evt.code === 'KeyS')
                 globalMap.splitTimer();
-            if (event_key === 'h')
+            if (evt.code === 'KeyH')
                 globalMap.copyToHistory();
         }
         if (globalBoardTimer !== null) {
-            if (event_key === ' ') {
+            if (evt.code === 'Space') {
                 globalBoardTimer.toggleRunning();
                 evt.preventDefault();
             }
-            if (event_key === ',')
-                globalBoardTimer.adjustRewards(+1);
-            if (event_key === '<')
-                globalBoardTimer.adjustRewards(-1);
-            if (event_key === 'm')
+            if (evt.code === 'Comma')
+                if (!evt.shiftKey)
+                    globalBoardTimer.adjustRewards(+1);
+                else
+                    globalBoardTimer.adjustRewards(-1);
+            if (evt.code === 'KeyM')
                 globalBoardTimer.toggleLoadingTheRoom();
-            if (event_key === ';')
-                globalBoardTimer.toggleInvalidated();
-            if (event_key === ':')
-                globalBoardTimer.resetTimer();
+            if (evt.code === 'Semicolon')
+                if (!evt.shiftKey)
+                    globalBoardTimer.toggleInvalidated();
+                else
+                    globalBoardTimer.resetTimer();
         }
     }
 }
