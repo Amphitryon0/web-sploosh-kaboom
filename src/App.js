@@ -1111,7 +1111,7 @@ class MainMap extends React.Component {
                             <span>&nbsp;Toggle Room Entered&nbsp;</span><span>&nbsp;m&nbsp;</span>
                             <span>&nbsp;Invalidate Timer&nbsp;</span><span>&nbsp;;&nbsp;</span>
                             <span>&nbsp;Reset Timer&nbsp;</span><span>&nbsp;Shift+;&nbsp;</span>
-                            <span>&nbsp;Split Timer&nbsp;</span><span>&nbsp;s&nbsp;</span>
+                            <span>&nbsp;Split Timer&nbsp;</span><span>&nbsp;w&nbsp;</span>
                         </>}
                     </div>
                     {this.state.turboBlurboMode &&
@@ -1182,7 +1182,7 @@ class MainMap extends React.Component {
                     </>
                 }
                 <button onClick={() => { this.incrementKills(); }}>
-                    Increment Kills (c)
+                    Increment Kills (d)
                 </button>
                 <button onClick={() => { this.clearField(); }}>
                     Reset
@@ -1366,9 +1366,9 @@ function globalShortcutsHandler(evt) {
                 globalMap.reportMiss();
             if (evt.code === 'KeyX')
                 globalMap.reportHit();
-            if (evt.code === 'KeyC')
+            if (evt.code === 'KeyD')
                 globalMap.incrementKills();
-            if (evt.code === 'KeyS')
+            if (evt.code === 'KeyW')
                 globalMap.splitTimer();
             if (evt.code === 'KeyH')
                 globalMap.copyToHistory();
