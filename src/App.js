@@ -1354,35 +1354,43 @@ function globalShortcutsHandler(evt) {
     if (evt.target && 'getAttribute' in evt.target && evt.target.getAttribute('data-stop-shortcuts'))
         return;
 
-    // Add z or y for German keyboard support.
     var event_key = evt.key.toLowerCase();
-    if (event_key === 'z' && evt.ctrlKey)
-        globalMap.undoLastMarking();
-    else if ((event_key === 'z' || event_key === 'y')  && globalMap !== null)
-        globalMap.reportMiss();
-    if ((event_key === 'x') && globalMap !== null)
-        globalMap.reportHit();
-    if (event_key === 'c' && globalMap !== null)
-        globalMap.incrementKills();
-    if (event_key === 's' && globalMap !== null)
-        globalMap.splitTimer();
-    if (event_key === 'h' && globalMap !== null)
-        globalMap.copyToHistory();
-
-    if (event_key === ' ' && globalBoardTimer !== null) {
-        globalBoardTimer.toggleRunning();
-        evt.preventDefault();
+    if (evt.ctrlKey) {
+        if (globalMap !== null && event_key === 'z') {
+            globalMap.undoLastMarking();
+        }
     }
-    if (event_key === ',' && globalBoardTimer !== null)
-        globalBoardTimer.adjustRewards(+1);
-    if (event_key === '<' && globalBoardTimer !== null)
-        globalBoardTimer.adjustRewards(-1);
-    if (event_key === 'm' && globalBoardTimer !== null)
-        globalBoardTimer.toggleLoadingTheRoom();
-    if (event_key === ';' && globalBoardTimer !== null)
-        globalBoardTimer.toggleInvalidated();
-    if (event_key === ':' && globalBoardTimer !== null)
-        globalBoardTimer.resetTimer();
+    else {
+        if (globalMap !== null) {
+            // Support z or y for German keyboards.
+            if (event_key === 'z' || event_key === 'y')
+                globalMap.reportMiss();
+            if (event_key === 'x')
+                globalMap.reportHit();
+            if (event_key === 'c')
+                globalMap.incrementKills();
+            if (event_key === 's')
+                globalMap.splitTimer();
+            if (event_key === 'h')
+                globalMap.copyToHistory();
+        }
+        if (globalBoardTimer !== null) {
+            if (event_key === ' ') {
+                globalBoardTimer.toggleRunning();
+                evt.preventDefault();
+            }
+            if (event_key === ',')
+                globalBoardTimer.adjustRewards(+1);
+            if (event_key === '<')
+                globalBoardTimer.adjustRewards(-1);
+            if (event_key === 'm')
+                globalBoardTimer.toggleLoadingTheRoom();
+            if (event_key === ';')
+                globalBoardTimer.toggleInvalidated();
+            if (event_key === ':')
+                globalBoardTimer.resetTimer();
+        }
+    }
 }
 
 document.addEventListener('keydown', globalShortcutsHandler);
