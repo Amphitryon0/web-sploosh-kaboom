@@ -1104,7 +1104,7 @@ class MainMap extends React.Component {
                 this.reportMiss();
             if (evt.code === 'KeyX')
                 this.reportHit();
-            if (evt.code === 'KeyC')
+            if (evt.code === 'KeyV')
                 this.incrementKills();
             if (evt.code === 'Space') {
                 this.splitTimer();
@@ -1214,7 +1214,7 @@ class MainMap extends React.Component {
                     <button style={{ fontSize: '150%', margin: '10px' }} onClick={() => { this.shiftHistory(); }}>Shift History</button>
                 </>
             }
-            <button style={{ fontSize: '150%', margin: '10px' }} onClick={() => { this.incrementKills(); }}>Increment Kills (c)</button>
+            <button style={{ fontSize: '150%', margin: '10px' }} onClick={() => { this.incrementKills(); }}>Increment Kills (v)</button>
             <button style={{ fontSize: '150%', margin: '10px' }} onClick={() => { this.clearField(); }}>Reset</button>
             {
                 !this.state.turboBlurboMode &&
