@@ -243,10 +243,12 @@ impl PossibleBoards {
         self.do_computation(hits, misses, squids_gotten, &board_priors)
     }
 
-    pub fn disambiguate_final_board(
+    pub fn disambiguate_board(
         &self,
         board_table: &[u32],
         hits: &[u8],
+        misses: &[u8],
+        squids_gotten: i32,
         observed_boards: &[u32],
         prior_steps_from_previous_means: &[u32],
         prior_steps_from_previous_stddevs: &[f64],
@@ -259,8 +261,9 @@ impl PossibleBoards {
         );
 
         let hit_mask = make_mask(hits);
+        let miss_mask = make_mask(misses);
         for (i, pb) in (&self.boards).iter().enumerate() {
-            if ! pb.check_compatible(hit_mask, 0, 3) {
+            if ! pb.check_compatible(hit_mask, miss_mask, squids_gotten) {
                 board_priors[i] = 0.0;
             }
         }
@@ -344,8 +347,10 @@ pub fn calculate_probabilities_from_game_history(
 }
 
 #[wasm_bindgen]
-pub fn disambiguate_final_board(
+pub fn disambiguate_board(
     hits: &[u8],
+    misses: &[u8],
+    squids_gotten: i32,
     observed_boards: &[u32],
     prior_steps_from_previous_means: &[u32],
     prior_steps_from_previous_stddevs: &[f64],
@@ -358,9 +363,11 @@ pub fn disambiguate_final_board(
 
     POSSIBLE_BOARDS
         .get_or_init(PossibleBoards::new)
-        .disambiguate_final_board(
+        .disambiguate_board(
             board_table,
             hits,
+            misses,
+            squids_gotten,
             observed_boards,
             prior_steps_from_previous_means,
             prior_steps_from_previous_stddevs,
