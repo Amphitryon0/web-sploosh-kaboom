@@ -208,37 +208,34 @@ standard deviation of 100,000.
 2. The runner plays one game and enters the squid locations observed at the end
 of the game into the program.
 
-3. The program determines the board to be number 587,288 out of 604,584.
-
-4. The program searches within the constraints of the runner's RNG estimate and
+3. The program searches within the constraints of the runner's RNG estimate and
 finds this board occurs at indices 9,979,965, 9,979,968, 9,993,704, 10,026,312,
 and 10,321,827. It assigns these indices relative probabilities of 24.94%,
 24.94%, 25.40%, 24.58%, and 0.14%.
 
-5. Estimating that 7,000 RNG calls happened between generating the first board
+4. Estimating that 7,000 RNG calls happened between generating the first board
 and the second, the program considers the range between 6,000 and 8,000 steps
 after each of the indices it found.
 
-6. Each board in each range is given a probability according to a normal
+5. Each board in each range is given a probability according to a normal
 distribution. Then, the probabilities for each range's boards are multiplied by
 the probability that that is the correct range, i.e., the probabilities
-determined in step 4.
+determined in step 3.
 
-7. The program determines a probability map for the game board by adding the
+6. The program determines a probability map for the game board by adding the
 probability of every board in every range to all the squares in which the board
 contains squids. This probability map is normalized by dividing the
 probabilities of all squares by the sum of all the boards' probabilities.
 
-8. Every time the runner makes a shot, step 7 is repeated, but only considering
+7. Every time the runner makes a shot, step 6 is repeated, but only considering
 those boards that are consistent with the current game state.
 
-9. The runner finishes the second board, which the program determines is number
-133,982.
+8. The runner finishes the second board.
 
-10. The program determines that the first board must have been at index
+9. The program determines that the first board must have been at index
 9,979,965 or 9,979,968, with the second board in either case being at 9,986,764.
 
-11. The third game proceeds similarly to the second, except that there are fewer
+10. The third game proceeds similarly to the second, except that there are fewer
 ranges, meaning that the exact board can be determined sooner.
 
 ## Feedback
