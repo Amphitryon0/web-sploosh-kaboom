@@ -1078,6 +1078,7 @@ class MainMap extends React.Component {
             ...gameHistoryArguments,
         );
         if (likelyBoard !== undefined) {
+            this.copyToUndoBuffer();
             const layoutString = this.boardIndexToLayoutString[likelyBoard];
             this.setStateFromLayoutString(layoutString);
         }
