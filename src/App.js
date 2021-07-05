@@ -1058,6 +1058,31 @@ class MainMap extends React.Component {
         drawingBoards[drawingBoards.length - 1].clearBoard();
     }
 
+    setStateFromLayoutString(layoutString) {
+        const grid = [];
+        for (let y = 0; y < 8; y++)
+            for (let x = 0; x < 8; x++)
+                grid[[x, y]] = layoutString[x + 8 * y] === '.' ? null : 'HIT';
+        this.setState({ grid, squidsGotten: 3 });
+    }
+
+    async killMostLikely(gameHistoryArguments) {
+        const {hits, misses, numericSquidsGotten} = this.getGridStatistics(this.state.grid, this.state.squidsGotten);
+        if (gameHistoryArguments === undefined)
+            gameHistoryArguments = this.makeGameHistoryArguments();
+        await wasm;
+        const likelyBoard = disambiguate_board(
+            Uint8Array.from(hits),
+            Uint8Array.from(misses),
+            numericSquidsGotten,
+            ...gameHistoryArguments,
+        );
+        if (likelyBoard !== undefined) {
+            const layoutString = this.boardIndexToLayoutString[likelyBoard];
+            this.setStateFromLayoutString(layoutString);
+        }
+    }
+
     renderActualMap() {
         return <div className="board">
             {naturalsUpTo(8).map(
@@ -1177,6 +1202,9 @@ class MainMap extends React.Component {
                         </button>
                         <button onClick={() => { this.copyToHistory(); }}>
                             Copy to History (h)
+                        </button>
+                        <button onClick={() => { this.killMostLikely(); }}>
+                            Quick Kill (k)
                         </button>
                         <button onClick={() => { this.shiftHistory(); }}>
                             Shift History
@@ -1370,6 +1398,8 @@ function globalShortcutsHandler(evt) {
         globalMap.splitTimer();
     if (event_key === 'h' && globalMap !== null)
         globalMap.copyToHistory();
+    if (event_key === 'k' && globalMap !== null)
+        globalMap.killMostLikely();
 
     if (event_key === ' ' && globalBoardTimer !== null) {
         globalBoardTimer.toggleRunning();
