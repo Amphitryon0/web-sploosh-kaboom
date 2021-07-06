@@ -737,7 +737,7 @@ class MainMap extends React.Component {
     makeGameHistoryArguments() {
         // Figure out how many history boards we have.
         const rawObservedBoards = this.layoutDrawingBoardRefs
-            .map((ref) => this.boardIndices[ref.current.getLayoutString()]);
+            .map((ref) => this.boardIndices?.[ref.current?.getLayoutString()]);
         const observedBoards = [];
         for (const ob of rawObservedBoards) {
             if (ob === undefined)
@@ -859,10 +859,10 @@ class MainMap extends React.Component {
             grid, hits, misses, numericSquidsGotten,
             oldValid: this.state.valid,
             didWeConcludeTheSituationWasValid: valid,
-            probabilities: Array.from(probabilities),
+            probabilities: Array.from(probabilities ?? []),
             turboBlurboMode: this.state.turboBlurboMode,
             turboBlurboTiming: this.state.turboBlurboTiming,
-            gameHistoryArguments: (gameHistoryArguments === null) ? [] : gameHistoryArguments.map(a => Array.from(a)),
+            gameHistoryArguments: gameHistoryArguments?.map(a => Array.from(a)) ?? [],
             timerStepEstimate: this.state.timerStepEstimate,
             computationTime: (t1 - t0) / 1000,
             configParams: this.getConfigParams(),
