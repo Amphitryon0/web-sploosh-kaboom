@@ -1063,7 +1063,9 @@ class MainMap extends React.Component {
         for (let y = 0; y < 8; y++)
             for (let x = 0; x < 8; x++)
                 grid[[x, y]] = layoutString[x + 8 * y] === '.' ? null : 'HIT';
-        this.setState({ grid, squidsGotten: 3 });
+        this.setState({ grid, squidsGotten: 3 }, () => {
+            this.doComputation(grid, 3);
+        });
     }
 
     async killMostLikely(gameHistoryArguments) {
