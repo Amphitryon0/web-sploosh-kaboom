@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/web-sploosh-kaboom/static/css/main.ad267df8.chunk.css",
-    "main.js": "/web-sploosh-kaboom/static/js/main.81accc86.chunk.js",
-    "main.js.map": "/web-sploosh-kaboom/static/js/main.81accc86.chunk.js.map",
+    "main.css": "/web-sploosh-kaboom/static/css/main.7cf160cc.chunk.css",
+    "main.js": "/web-sploosh-kaboom/static/js/main.3a7bbe50.chunk.js",
+    "main.js.map": "/web-sploosh-kaboom/static/js/main.3a7bbe50.chunk.js.map",
     "runtime-main.js": "/web-sploosh-kaboom/static/js/runtime-main.8db49b55.js",
     "runtime-main.js.map": "/web-sploosh-kaboom/static/js/runtime-main.8db49b55.js.map",
     "static/js/2.843c39f6.chunk.js": "/web-sploosh-kaboom/static/js/2.843c39f6.chunk.js",
     "static/js/2.843c39f6.chunk.js.map": "/web-sploosh-kaboom/static/js/2.843c39f6.chunk.js.map",
     "index.html": "/web-sploosh-kaboom/index.html",
-    "precache-manifest.d8a9a571b9ae6db6a00b37aca74938b5.js": "/web-sploosh-kaboom/precache-manifest.d8a9a571b9ae6db6a00b37aca74938b5.js",
+    "precache-manifest.8104764ca7663bd37c68723cf0c8554e.js": "/web-sploosh-kaboom/precache-manifest.8104764ca7663bd37c68723cf0c8554e.js",
     "service-worker.js": "/web-sploosh-kaboom/service-worker.js",
-    "static/css/main.ad267df8.chunk.css.map": "/web-sploosh-kaboom/static/css/main.ad267df8.chunk.css.map",
+    "static/css/main.7cf160cc.chunk.css.map": "/web-sploosh-kaboom/static/css/main.7cf160cc.chunk.css.map",
     "static/js/2.843c39f6.chunk.js.LICENSE.txt": "/web-sploosh-kaboom/static/js/2.843c39f6.chunk.js.LICENSE.txt",
     "static/media/App.css": "/web-sploosh-kaboom/static/media/board_background.6fc68136.png"
   },
   "entrypoints": [
     "static/js/runtime-main.8db49b55.js",
     "static/js/2.843c39f6.chunk.js",
-    "static/css/main.ad267df8.chunk.css",
-    "static/js/main.81accc86.chunk.js"
+    "static/css/main.7cf160cc.chunk.css",
+    "static/js/main.3a7bbe50.chunk.js"
   ]
 }
