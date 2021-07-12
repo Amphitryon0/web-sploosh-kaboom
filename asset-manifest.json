@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/web-sploosh-kaboom/static/css/main.1f5d6f72.chunk.css",
+    "main.css": "/web-sploosh-kaboom/static/css/main.ad267df8.chunk.css",
     "main.js": "/web-sploosh-kaboom/static/js/main.3a7bbe50.chunk.js",
     "main.js.map": "/web-sploosh-kaboom/static/js/main.3a7bbe50.chunk.js.map",
     "runtime-main.js": "/web-sploosh-kaboom/static/js/runtime-main.8db49b55.js",
@@ -8,16 +8,16 @@
     "static/js/2.843c39f6.chunk.js": "/web-sploosh-kaboom/static/js/2.843c39f6.chunk.js",
     "static/js/2.843c39f6.chunk.js.map": "/web-sploosh-kaboom/static/js/2.843c39f6.chunk.js.map",
     "index.html": "/web-sploosh-kaboom/index.html",
-    "precache-manifest.5272daef322a7b717aa4a550e0af77df.js": "/web-sploosh-kaboom/precache-manifest.5272daef322a7b717aa4a550e0af77df.js",
+    "precache-manifest.7637401c37a86a7eefdda222354cb6aa.js": "/web-sploosh-kaboom/precache-manifest.7637401c37a86a7eefdda222354cb6aa.js",
     "service-worker.js": "/web-sploosh-kaboom/service-worker.js",
-    "static/css/main.1f5d6f72.chunk.css.map": "/web-sploosh-kaboom/static/css/main.1f5d6f72.chunk.css.map",
+    "static/css/main.ad267df8.chunk.css.map": "/web-sploosh-kaboom/static/css/main.ad267df8.chunk.css.map",
     "static/js/2.843c39f6.chunk.js.LICENSE.txt": "/web-sploosh-kaboom/static/js/2.843c39f6.chunk.js.LICENSE.txt",
     "static/media/App.css": "/web-sploosh-kaboom/static/media/board_background.6fc68136.png"
   },
   "entrypoints": [
     "static/js/runtime-main.8db49b55.js",
     "static/js/2.843c39f6.chunk.js",
-    "static/css/main.1f5d6f72.chunk.css",
+    "static/css/main.ad267df8.chunk.css",
     "static/js/main.3a7bbe50.chunk.js"
   ]
 }
