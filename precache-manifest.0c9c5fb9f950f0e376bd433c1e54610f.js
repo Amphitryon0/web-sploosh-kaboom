@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "04a37f8dcb4686f73aa1c99fa5cd97d4",
+    "revision": "6212d8a2bd3ad3b06a4530ec311cb9fd",
     "url": "/web-sploosh-kaboom/index.html"
   },
   {
-    "revision": "cfd86971135d956c72bb",
+    "revision": "494821c9fb39b3e64a19",
     "url": "/web-sploosh-kaboom/static/css/main.ad267df8.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/web-sploosh-kaboom/static/js/2.e03be878.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cfd86971135d956c72bb",
-    "url": "/web-sploosh-kaboom/static/js/main.5c8dc961.chunk.js"
+    "revision": "494821c9fb39b3e64a19",
+    "url": "/web-sploosh-kaboom/static/js/main.5df6829b.chunk.js"
   },
   {
     "revision": "10af50f07a2eb9ec5ae9",
