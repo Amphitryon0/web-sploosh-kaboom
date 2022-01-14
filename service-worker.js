@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/web-sploosh-kaboom/precache-manifest.0c9c5fb9f950f0e376bd433c1e54610f.js"
+  "/web-sploosh-kaboom/precache-manifest.f97ea97bd6f25695cd79c54e9855566f.js"
 );
 
 self.addEventListener('message', (event) => {
