@@ -1072,6 +1072,12 @@ class MainMap extends React.Component {
         drawingBoards[drawingBoards.length - 1].clearBoard();
     }
 
+    clearHistory() {
+        for (const ref of this.layoutDrawingBoardRefs) {
+            ref.current.clearBoard();
+        }
+    }
+
     shortcutsHandler(evt) {
         // Check if the target is an input field that should take precedence over shortcuts.
         if (evt.target?.getAttribute?.('data-stop-shortcuts'))
@@ -1196,7 +1202,7 @@ class MainMap extends React.Component {
             {
                 this.state.turboBlurboMode &&
                 <>
-                    <button style={{ fontSize: '150%', margin: '10px' }} onClick={() => { this.shiftHistory(); }}>Shift History</button>
+                    <button style={{ fontSize: '150%', margin: '10px' }} onClick={() => { this.clearHistory(); }}>Clear History</button>
                 </>
             }
             <button style={{ fontSize: '150%', margin: '10px' }} onClick={() => { this.incrementKills(); }}>Increment Kills (c)</button>
