@@ -14,6 +14,7 @@ prevent these features from being merged here for the time being.
     - [RNG Algorithm](#rng-algorithm)
   - [Solving the Game](#solving-the-game)
   - [Worked Example](#worked-example)
+- [How do I use this tool?](#how-do-i-use-this-tool)
 - [Feedback](#feedback)
 - [Credits](#temporary-credit-page)
 
@@ -192,6 +193,10 @@ This probability map is normalized by dividing the probability of each square by
 9. The program determines that the first board must have been at index 9,979,965 or 9,979,968, with the second board in either case being at 9,986,764.
 
 10. The third game proceeds similarly to the second, except that there are fewer ranges, meaning that the exact board can be determined sooner.
+
+## How do I use this tool?
+
+See [the separate instructions page](./docs/instructions.md).
 
 ## Feedback
 
