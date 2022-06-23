@@ -1387,9 +1387,8 @@ class App extends React.Component {
                 <h1 style={{ color: 'white' }}>Sploosh Kaboom Probability Calculator</h1>
                 <p style={{ color: 'white' }}>
                     This is a tool for computing the likely locations of squids in the sploosh kaboom minigame of The Legend of Zelda: The Wind Waker (both SD and HD versions).
-                    Unfortunately it's currently pretty complicated to use correctly.
-                    A collection of tutorials will be compiled at some point, hopefully soon.
-                    For now, see the <a href="https://github.com/petersn/web-sploosh-kaboom">GitHub repository</a>.
+                    It can be pretty complicated to use correctly.
+                    For an explanation, see the <a href="https://github.com/petersn/web-sploosh-kaboom/docs/instructions.md">instructions</a> in the <a href="https://github.com/petersn/web-sploosh-kaboom">GitHub repository</a>.
                 </p>
             </div>
             <MainMap />
