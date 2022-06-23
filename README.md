@@ -9,6 +9,7 @@ prevent these features from being merged here for the time being.
   - [Why is Sploosh Kaboom Required for Hundo?](#why-is-sploosh-kaboom-required-for-the-wind-waker-100)
 - [How does this tool work?](#how-does-this-tool-work)
 - [How do I use this tool?](#how-do-i-use-this-tool)
+- [Running and Building](#running-and-building)
 - [Feedback](#feedback)
 - [Credits](#temporary-credit-page)
 
@@ -34,6 +35,15 @@ See [the separate explanation](./docs/solving.md).
 ## How do I use this tool?
 
 See [the separate instructions page](./docs/instructions.md).
+
+## Running and Building
+
+To run or build the tool locally, you will need [Node.js and npm](https://nodejs.org/en/download/).
+Once you have it installed, run `npm install` within the project's source directory.
+
+To use the local development server, run `npm start`.
+To create a production build, run `npm run build`.
+To automatically create a production build, commit it to the end of a branch called `gh-pages`, and push to a remote called `origin`, run `npm run deploy`.
 
 ## Feedback
 
